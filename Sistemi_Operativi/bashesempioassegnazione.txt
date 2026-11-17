@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+tmp=`ls -la | wc -l`
+tmp1=`ls -l | wc -l`
+
+echo "numero di elementi nella dir: "$tmp
+echo "numero di elementi non hidden: " $tmp1
+
+let "diff=$tmp-$tmp1"
+echo "hidden: " $diff
+
+let "ripeti = 0"
+while [ $ripeti -le 3 ]
+do
+	echo "yeye"
+	let "ripeti = $ripeti + 1"
+done
+	echo "AAAAAAAAAAAA"
+
+finito=go
+while [ $finito != quit ]
+do
+	echo "che famo? Andiamo? [go/quit] "
+	read finito
+done
+

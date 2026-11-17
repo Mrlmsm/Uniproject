@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+
+if [ -z "$1" ]; then
+	echo "Errore"
+	exit 1
+
+fi
+
+if [ -d "$1" ]; then
+	ls -l "$1"
+
+elif [ -f "$1" ]; then
+	cat "$1"
+
+else 
+	echo "NO"
+	exit 2
+fi

@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+
+echo "=== 1. Creazione di 10 file di testo ==="
+# Ciclo per generare 10 file (file1.txt, file2.txt, ..., file10.txt)
+for i in {1..10}; do
+    filename="file${i}.txt"
+    # Scriviamo del contenuto per superare le centinaia di parole per file
+    {
+        echo "=== INIZIO DEL FILE NUMERO $i ==="
+        for j in {1..25}; do
+            echo "Paragrafo $j del file $i: Questo testo serve a simulare un documento consistente. Linux e la shell Bash permettono di automatizzare facilmente la creazione, la scrittura e la manipolazione di grandi volumi di dati testuali. Ogni file generato in questo ciclo contiene diverse righe e parole per soddisfare la richiesta dell'esercizio."
+        done
+        echo "=== FINE DEL FILE NUMERO $i ==="
+        echo -e "\n\n"
+    } > "$filename"
+done
+echo "Creati con successo: file1.txt ... file10.txt"
+
+echo -e "\n=== 2. Unione dei file in all_content.txt ==="
+# Il comando cat unisce tutti i file che iniziano per 'file' e finiscono con '.txt'
+cat file*.txt > all_content.txt
+echo "Contenuto copiato correttamente in 'all_content.txt'."
+
+echo -e "\n=== 3. Visualizzazione a blocchi (pagine) ==="
+echo "Premi la BARRA SPAZIATRICE per scorrere la pagina successiva o 'q' per uscire."
+sleep 1
+
+# Utilizziamo 'less' per una visualizzazione a blocchi/pagine scorrevole
+less all_content.txt

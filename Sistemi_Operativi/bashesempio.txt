@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+# commento
+echo iwejfiewfi
+variabile=88
+echo $variabile
+echo $0 $1
+
+echo "il valore è $variabile"
+echo `ls -l $variabile`
+echo '$variabile'
