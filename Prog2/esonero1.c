@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include "list.h"
 
 
@@ -35,10 +37,22 @@ List makenode(char data){
 List stringToList(char *s){
 	if(s == NULL) return NULL; 
 	if(*s == '\0') return NULL;
-	char f = NULL;
+	List head = NULL;
+	List tail = NULL;
 	for(int i = 0; s[i] != '\0'; i++){
-		if (s[i] >= 'A' && s[i] <= 'Z') f = tolower(s[i]);
+		if (s[i] >= 'A' && s[i] <= 'Z') {
+		char f = tolower(s[i]);
 		List node = makenode(f);
-	}
+		if(head == NULL){
+			head = node;
+			tail = node;
+		}
+		else{
+			tail->next = node;
+			tail = node;
+		}
+		}
 
+	}
+	return head;
 }
